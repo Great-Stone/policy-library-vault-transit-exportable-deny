@@ -2,11 +2,11 @@
 
 > Here's what Sentinel looks like in Vault
 >
-> [Vault - transit_exportable_deny](./docs/policies/transit_exportable_deny.md)
+> [Vault - transit_exportable_deny](https://github.com/Great-Stone/policy-library-vault-transit-exportable-deny/blob/main/docs/policies/transit_exportable_deny.md)
 
 ## 1. Terraform Sample
 
-[main.tf](./policies/terraform/main.tf)
+[main.tf](https://github.com/Great-Stone/policy-library-vault-transit-exportable-deny/blob/main/policies/terraform/main.tf)
 
 ```hcl
 resource "vault_transit_secret_backend_key" "key" {
@@ -42,4 +42,4 @@ main = rule {
 
 ## 3. TEST
 
-![](./images/vault-transit-exportable-check.png)
+![](https://github.com/Great-Stone/policy-library-vault-transit-exportable-deny/blob/main/images/vault-transit-exportable-check.png)
