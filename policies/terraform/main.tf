@@ -11,7 +11,7 @@ resource "vault_mount" "transit" {
 resource "vault_transit_secret_backend_key" "key" {
   backend    = vault_mount.transit.path
   name       = "my-key-name"
-  exportable = true
+  exportable = false
 }
 
 resource "vault_policy" "transit_admin" {

@@ -11,6 +11,7 @@ exportable_check = rule {
     }
 }
 
+# Check transit key exporting
 main = rule {
   exportable_check
 }
