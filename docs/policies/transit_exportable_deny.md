@@ -1,4 +1,4 @@
-# Transit Key Exportable Deny - Vault Only
+# Transit Key Exportable Deny - Vault Enterprise case
 
 ## 1. Create a policy for EGP exportable_deny.sentinel
 
