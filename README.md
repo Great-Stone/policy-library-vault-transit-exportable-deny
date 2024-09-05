@@ -42,4 +42,4 @@ main = rule {
 
 ## 3. TEST
 
-![](https://github.com/Great-Stone/policy-library-vault-transit-exportable-deny/blob/main/images/vault-transit-exportable-check.png)
+![](https://github.com/Great-Stone/policy-library-vault-transit-exportable-deny/blob/main/images/vault-transit-exportable-check.png?raw=true)
