@@ -7,7 +7,7 @@ transit_key = plan.find_resources("vault_transit_secret_backend_key")
 exportable_check = rule {
     all transit_key as _, rc {
       print("Current key exportable is ", rc.change.after.exportable) and
-      (rc.change.after.exportable is false
+      (rc.change.after.exportable is false)
     }
 }
 
