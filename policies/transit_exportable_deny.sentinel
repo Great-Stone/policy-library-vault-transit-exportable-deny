@@ -1,9 +1,14 @@
-import "strings"
+import "tfplan-functions" as plan
 
-exportable = request.data.exportable
+transit_key = plan.find_resources("vault_transit_secret_backend_key")
 
+# (KR) Transit Key는 내보내기를 허용하지 않습니다.
+# (EN) Transit Key does not allow exporting.
 exportable_check = rule {
-  exportable is "false"
+    all transit_key as _, rc {
+      print("Current key exportable is ", rc.change.after.exportable) and
+      (rc.change.after.exportable is false
+    }
 }
 
 main = rule {

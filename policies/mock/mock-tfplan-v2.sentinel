@@ -1,0 +1,478 @@
+terraform_version = "1.9.5"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"vault_mount.transit": {
+			"address":        "vault_mount.transit",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "transit",
+			"provider_name":  "registry.terraform.io/hashicorp/vault",
+			"tainted":        false,
+			"type":           "vault_mount",
+			"values": {
+				"allowed_managed_keys":        null,
+				"allowed_response_headers":    null,
+				"default_lease_ttl_seconds":   3600,
+				"delegated_auth_accessors":    null,
+				"description":                 "Example description",
+				"external_entropy_access":     false,
+				"identity_token_key":          null,
+				"listing_visibility":          null,
+				"local":                       null,
+				"max_lease_ttl_seconds":       86400,
+				"namespace":                   null,
+				"options":                     null,
+				"passthrough_request_headers": null,
+				"path":           "transit-test",
+				"plugin_version": null,
+				"type":           "transit-test",
+			},
+		},
+		"vault_policy.transit_admin": {
+			"address":        "vault_policy.transit_admin",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "transit_admin",
+			"provider_name":  "registry.terraform.io/hashicorp/vault",
+			"tainted":        false,
+			"type":           "vault_policy",
+			"values": {
+				"name":      "transit-test-admin",
+				"namespace": null,
+				"policy":    "path \"transit-test\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\npath \"transit-test/*\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+			},
+		},
+		"vault_transit_secret_backend_key.key": {
+			"address":        "vault_transit_secret_backend_key.key",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "key",
+			"provider_name":  "registry.terraform.io/hashicorp/vault",
+			"tainted":        false,
+			"type":           "vault_transit_secret_backend_key",
+			"values": {
+				"allow_plaintext_backup": false,
+				"backend":                "transit-test",
+				"convergent_encryption":  false,
+				"deletion_allowed":       false,
+				"derived":                false,
+				"exportable":             true,
+				"key_size":               0,
+				"min_decryption_version": 1,
+				"min_encryption_version": 0,
+				"name":      "my-key-name",
+				"namespace": null,
+				"type":      "aes256-gcm96",
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"vault_mount.transit": {
+		"address": "vault_mount.transit",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"allowed_managed_keys":        null,
+				"allowed_response_headers":    null,
+				"default_lease_ttl_seconds":   3600,
+				"delegated_auth_accessors":    null,
+				"description":                 "Example description",
+				"external_entropy_access":     false,
+				"identity_token_key":          null,
+				"listing_visibility":          null,
+				"local":                       null,
+				"max_lease_ttl_seconds":       86400,
+				"namespace":                   null,
+				"options":                     null,
+				"passthrough_request_headers": null,
+				"path":           "transit-test",
+				"plugin_version": null,
+				"type":           "transit-test",
+			},
+			"after_unknown": {
+				"accessor":                     true,
+				"audit_non_hmac_request_keys":  true,
+				"audit_non_hmac_response_keys": true,
+				"id":        true,
+				"seal_wrap": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "transit",
+		"provider_name":  "registry.terraform.io/hashicorp/vault",
+		"type":           "vault_mount",
+	},
+	"vault_policy.transit_admin": {
+		"address": "vault_policy.transit_admin",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"name":      "transit-test-admin",
+				"namespace": null,
+				"policy":    "path \"transit-test\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\npath \"transit-test/*\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+			},
+			"after_unknown": {
+				"id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "transit_admin",
+		"provider_name":  "registry.terraform.io/hashicorp/vault",
+		"type":           "vault_policy",
+	},
+	"vault_transit_secret_backend_key.key": {
+		"address": "vault_transit_secret_backend_key.key",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"allow_plaintext_backup": false,
+				"backend":                "transit-test",
+				"convergent_encryption":  false,
+				"deletion_allowed":       false,
+				"derived":                false,
+				"exportable":             true,
+				"key_size":               0,
+				"min_decryption_version": 1,
+				"min_encryption_version": 0,
+				"name":      "my-key-name",
+				"namespace": null,
+				"type":      "aes256-gcm96",
+			},
+			"after_unknown": {
+				"auto_rotate_period":    true,
+				"id":                    true,
+				"keys":                  true,
+				"latest_version":        true,
+				"min_available_version": true,
+				"supports_decryption":   true,
+				"supports_derivation":   true,
+				"supports_encryption":   true,
+				"supports_signing":      true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "key",
+		"provider_name":  "registry.terraform.io/hashicorp/vault",
+		"type":           "vault_transit_secret_backend_key",
+	},
+}
+
+resource_drift = {}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"vault": {
+				"full_name":          "registry.terraform.io/hashicorp/vault",
+				"name":               "vault",
+				"version_constraint": "~> 4.0",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "vault_mount.transit",
+					"expressions": {
+						"default_lease_ttl_seconds": {
+							"constant_value": 3600,
+						},
+						"description": {
+							"constant_value": "Example description",
+						},
+						"max_lease_ttl_seconds": {
+							"constant_value": 86400,
+						},
+						"path": {
+							"constant_value": "transit-test",
+						},
+						"type": {
+							"constant_value": "transit-test",
+						},
+					},
+					"mode":                "managed",
+					"name":                "transit",
+					"provider_config_key": "vault",
+					"schema_version":      0,
+					"type":                "vault_mount",
+				},
+				{
+					"address": "vault_policy.transit_admin",
+					"expressions": {
+						"name": {
+							"references": [
+								"vault_mount.transit.path",
+								"vault_mount.transit",
+							],
+						},
+						"policy": {
+							"references": [
+								"vault_mount.transit.path",
+								"vault_mount.transit",
+								"vault_mount.transit.path",
+								"vault_mount.transit",
+							],
+						},
+					},
+					"mode":                "managed",
+					"name":                "transit_admin",
+					"provider_config_key": "vault",
+					"schema_version":      0,
+					"type":                "vault_policy",
+				},
+				{
+					"address": "vault_transit_secret_backend_key.key",
+					"expressions": {
+						"backend": {
+							"references": [
+								"vault_mount.transit.path",
+								"vault_mount.transit",
+							],
+						},
+						"exportable": {
+							"constant_value": true,
+						},
+						"name": {
+							"constant_value": "my-key-name",
+						},
+					},
+					"mode":                "managed",
+					"name":                "key",
+					"provider_config_key": "vault",
+					"schema_version":      0,
+					"type":                "vault_transit_secret_backend_key",
+				},
+			],
+		},
+	},
+	"format_version": "1.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "vault_mount.transit",
+					"mode":           "managed",
+					"name":           "transit",
+					"provider_name":  "registry.terraform.io/hashicorp/vault",
+					"schema_version": 0,
+					"sensitive_values": {
+						"audit_non_hmac_request_keys":  [],
+						"audit_non_hmac_response_keys": [],
+					},
+					"type": "vault_mount",
+					"values": {
+						"allowed_managed_keys":        null,
+						"allowed_response_headers":    null,
+						"default_lease_ttl_seconds":   3600,
+						"delegated_auth_accessors":    null,
+						"description":                 "Example description",
+						"external_entropy_access":     false,
+						"identity_token_key":          null,
+						"listing_visibility":          null,
+						"local":                       null,
+						"max_lease_ttl_seconds":       86400,
+						"namespace":                   null,
+						"options":                     null,
+						"passthrough_request_headers": null,
+						"path":           "transit-test",
+						"plugin_version": null,
+						"type":           "transit-test",
+					},
+				},
+				{
+					"address":          "vault_policy.transit_admin",
+					"mode":             "managed",
+					"name":             "transit_admin",
+					"provider_name":    "registry.terraform.io/hashicorp/vault",
+					"schema_version":   0,
+					"sensitive_values": {},
+					"type":             "vault_policy",
+					"values": {
+						"name":      "transit-test-admin",
+						"namespace": null,
+						"policy":    "path \"transit-test\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\npath \"transit-test/*\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+					},
+				},
+				{
+					"address":        "vault_transit_secret_backend_key.key",
+					"mode":           "managed",
+					"name":           "key",
+					"provider_name":  "registry.terraform.io/hashicorp/vault",
+					"schema_version": 0,
+					"sensitive_values": {
+						"keys": [],
+					},
+					"type": "vault_transit_secret_backend_key",
+					"values": {
+						"allow_plaintext_backup": false,
+						"backend":                "transit-test",
+						"convergent_encryption":  false,
+						"deletion_allowed":       false,
+						"derived":                false,
+						"exportable":             true,
+						"key_size":               0,
+						"min_decryption_version": 1,
+						"min_encryption_version": 0,
+						"name":      "my-key-name",
+						"namespace": null,
+						"type":      "aes256-gcm96",
+					},
+				},
+			],
+		},
+	},
+	"relevant_attributes": [
+		{
+			"attribute": [
+				"path",
+			],
+			"resource": "vault_mount.transit",
+		},
+	],
+	"resource_changes": [
+		{
+			"address": "vault_mount.transit",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"allowed_managed_keys":        null,
+					"allowed_response_headers":    null,
+					"default_lease_ttl_seconds":   3600,
+					"delegated_auth_accessors":    null,
+					"description":                 "Example description",
+					"external_entropy_access":     false,
+					"identity_token_key":          null,
+					"listing_visibility":          null,
+					"local":                       null,
+					"max_lease_ttl_seconds":       86400,
+					"namespace":                   null,
+					"options":                     null,
+					"passthrough_request_headers": null,
+					"path":           "transit-test",
+					"plugin_version": null,
+					"type":           "transit-test",
+				},
+				"after_sensitive": {
+					"audit_non_hmac_request_keys":  [],
+					"audit_non_hmac_response_keys": [],
+				},
+				"after_unknown": {
+					"accessor":                     true,
+					"audit_non_hmac_request_keys":  true,
+					"audit_non_hmac_response_keys": true,
+					"id":        true,
+					"seal_wrap": true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "transit",
+			"provider_name": "registry.terraform.io/hashicorp/vault",
+			"type":          "vault_mount",
+		},
+		{
+			"address": "vault_policy.transit_admin",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"name":      "transit-test-admin",
+					"namespace": null,
+					"policy":    "path \"transit-test\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\npath \"transit-test/*\" {\ncapabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+				},
+				"after_sensitive": {},
+				"after_unknown": {
+					"id": true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "transit_admin",
+			"provider_name": "registry.terraform.io/hashicorp/vault",
+			"type":          "vault_policy",
+		},
+		{
+			"address": "vault_transit_secret_backend_key.key",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"allow_plaintext_backup": false,
+					"backend":                "transit-test",
+					"convergent_encryption":  false,
+					"deletion_allowed":       false,
+					"derived":                false,
+					"exportable":             true,
+					"key_size":               0,
+					"min_decryption_version": 1,
+					"min_encryption_version": 0,
+					"name":      "my-key-name",
+					"namespace": null,
+					"type":      "aes256-gcm96",
+				},
+				"after_sensitive": {
+					"keys": [],
+				},
+				"after_unknown": {
+					"auto_rotate_period":    true,
+					"id":                    true,
+					"keys":                  true,
+					"latest_version":        true,
+					"min_available_version": true,
+					"supports_decryption":   true,
+					"supports_derivation":   true,
+					"supports_encryption":   true,
+					"supports_signing":      true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "key",
+			"provider_name": "registry.terraform.io/hashicorp/vault",
+			"type":          "vault_transit_secret_backend_key",
+		},
+	],
+	"terraform_version": "1.9.5",
+	"timestamp":         "2024-09-05T01:52:59Z",
+}
