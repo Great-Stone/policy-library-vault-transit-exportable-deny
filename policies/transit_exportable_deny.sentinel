@@ -1,0 +1,11 @@
+import "strings"
+
+exportable = request.data.exportable
+
+exportable_check = rule {
+  exportable is "false"
+}
+
+main = rule {
+  exportable_check
+}
