@@ -2,11 +2,11 @@
 
 > Vault의 Sentinel 형태는 다음을 참고하세요.
 >
-> <./docs/policies/transit_exportable_deny.md>
+> [Vault - transit_exportable_deny](./docs/policies/transit_exportable_deny.md)
 
 ## 1. Terraform Sample
 
-<./policies/terraform/main.tf>
+[main.tf](./policies/terraform/main.tf)
 
 ```hcl
 resource "vault_transit_secret_backend_key" "key" {
